@@ -60,28 +60,32 @@ def main():
     with open('function_trace.log', 'w') as log_file:
         log_file.write("")
 
-    initial_state_input = input("Describe the initial state (default is 'nothing has happened yet'): ") or "nothing has happened yet"
-    goal_input = input("Describe your goal: ")
+    # initial_state_input = input("Describe the initial state (default is 'nothing has happened yet'): ") or "nothing has happened yet"
+    initial_state_input = "nothing has happened yet"
+    # goal_input = input("Describe your goal: ")
+    goal_input = 'I want to build a script which recommends stock trades based on recent public trades made by american congressmembers'
 
     # Set default capabilities to a Linux terminal with internet access
     default_capabilities = "Linux terminal, internet access"
-    print(f"Default capabilities: {default_capabilities}")
-    capabilities_input = input("Describe the capabilities available (press Enter to use default): ")
+    capabilities_input = default_capabilities
+    # print(f"Default capabilities: {default_capabilities}")
+    # capabilities_input = input("Describe the capabilities available (press Enter to use default): ")
 
-    # Use default capabilities if the user doesn't provide any input
-    if not capabilities_input.strip():
-        capabilities_input = default_capabilities
+    # # Use default capabilities if the user doesn't provide any input
+    # if not capabilities_input.strip():
+    #     capabilities_input = default_capabilities
 
     goal_task = get_initial_task(goal_input)
     compressed_capabilities = compress_capabilities(capabilities_input)
 
-    planner_choice = input("Choose planner: (1) HTN Planner (default), (2) A* Search Planner: ").strip()
-    if planner_choice == "2":
-        use_search_planner = True
-        print("A* search planner selected")
-    else:
-        print("HTN planner selected")
-        use_search_planner = False
+    # planner_choice = input("Choose planner: (1) HTN Planner (default), (2) A* Search Planner: ").strip()
+    # if planner_choice == "2":
+    #     use_search_planner = True
+    #     print("A* search planner selected")
+    # else:
+    #     print("HTN planner selected")
+    #     use_search_planner = False
+    use_search_planner = False
 
     server_thread = threading.Thread(target=run_server)
     server_thread.start()

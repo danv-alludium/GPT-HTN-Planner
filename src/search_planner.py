@@ -8,8 +8,8 @@ import heapq
 import random
 from gpt4_utils import gpt4_is_goal, can_execute, log_state_change
 from openai_api import call_openai_api, log_response
-from src.guidance_prompts import htn_prompts
-from src.guidance_prompts.htn_prompts import calculate_weight
+from guidance_prompts import htn_prompts
+from guidance_prompts.htn_prompts import calculate_weight
 from task_node import TaskNode
 from text_utils import extract_lists, trace_function_calls
 from graph_manager import GraphManager
